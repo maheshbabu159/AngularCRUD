@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>PDO OOP CRUD using Bootstrap</title>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> </link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="javascript/app.js"></script>
+
+    </head>
+    <body>
+        <!--Navigation tabs -->
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+                <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+            </ul>
+            <br> 
+        </div>
+
+        <!--Login page-->
+        <div class="container">
+            <form method='post'>
+                <table class='table table-bordered'>
+                    <tr>
+                        <td>Username</td>
+                        <td><input type='text' name='username' class='form-control' value="" required/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Password</td>
+                        <td><input type='password' name='password' class='form-control' value="" required/></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="submit" class="btn btn-primary" name="loginButtonClick">
+                                <span class="glyphicon glyphicon-log-in"></span>  Login
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        
+        <div ng-app="htiPortal" ng-controller="UsersController">
+
+            <ul>
+                <li ng-repeat="item in items['result']"> {{item.username}} </li>
+            </ul>
+        </div>
+
+
+
+        <!-Footer ->
+        <div class="container">
+            <div class="alert alert-info">
+                <strong>tutorial link !</strong> <a href="http://cleartuts.blogspot.com/2015/04/php-pdo-crud-tutorial-using-oop-with.html">cleartuts</a>!
+            </div>
+        </div>
+    </body>
+</html>
