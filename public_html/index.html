@@ -7,10 +7,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-        <script src="javascript/app.js"></script>
+        <script src="javascript/mainApp.js"></script>
+        <script src="javascript/userController.js"></script>
+        <link href="css/app.css" rel="stylesheet" media="screen"></link>
 
     </head>
-    <body>
+    <body ng-app="mainApp" ng-controller="userController">
         <!--Navigation tabs -->
         <div class="container">
             <ul class="nav nav-tabs">
@@ -22,42 +24,26 @@
             <br> 
         </div>
 
-        <!--Login page-->
+        <!--Login page -->
         <div class="container">
-            <form method='post'>
-                <table class='table table-bordered'>
-                    <tr>
-                        <td>Username</td>
-                        <td><input type='text' name='username' class='form-control' value="" required/></td>
-                    </tr>
-
-                    <tr>
-                        <td>Password</td>
-                        <td><input type='password' name='password' class='form-control' value="" required/></td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" align="center">
-                            <button type="submit" class="btn btn-primary" name="loginButtonClick">
-                                <span class="glyphicon glyphicon-log-in"></span>  Login
-                            </button>
-                        </td>
-                    </tr>
-                </table>
+            <form class="login-form" ng-submit="formLoginCheck()">
+                <div class="container">
+                    <h2>Please sign in</h2>
+                    <label for="inputUsername" class="sr-only">Username</label>
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="username"/>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password"/>
+                    <br/>
+                    <div class="alert alert-danger" role="alert" ng-show="errorMsg">{{errorMsg}}</div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </div>
             </form>
-        </div>
-
+        </div> 
         
-        <div ng-app="htiPortal" ng-controller="UsersController">
+        
+        <br/>
 
-            <ul>
-                <li ng-repeat="item in items['result']"> {{item.username}} </li>
-            </ul>
-        </div>
-
-
-
-        <!-Footer ->
+        <!-- Footer -->
         <div class="container">
             <div class="alert alert-info">
                 <strong>tutorial link !</strong> <a href="http://cleartuts.blogspot.com/2015/04/php-pdo-crud-tutorial-using-oop-with.html">cleartuts</a>!
